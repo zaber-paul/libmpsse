@@ -9,6 +9,10 @@
 #include <ftdi.h>
 #endif
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define MPSSE_OK		0
 #define MPSSE_FAIL		-1
 
@@ -224,5 +228,8 @@ int FastRead(struct mpsse_context *mpsse, char *data, int size);
 int FastTransfer(struct mpsse_context *mpsse, char *wdata, char *rdata, int size);
 #endif
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif
