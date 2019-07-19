@@ -44,7 +44,7 @@ then
 
 	if ! test $PYDEV
 	then
-		PYDEV="/usr/include/python$(python -V 2>&1 | awk '{print $2}' | cut -d'.' -f1,2)"
+		PYDEV="/usr/include/python$(python3 -V 2>&1 | awk '{print $2}' | cut -d'.' -f1,2)"
 	fi
 
 	AC_CHECK_HEADERS([$PYDEV/Python.h],[],[echo "error: missing python header files" && exit 1])
@@ -53,8 +53,8 @@ then
 	then
 		dnl This is a hack to get a valid python library path
 		echo "import sys" > pylib.py
-		echo "for path in sys.path: print path" >> pylib.py
-		PYLIB="$(python pylib.py | grep -e '-packages$' | head -1)"
+		echo "for path in sys.path: print(path)" >> pylib.py
+		PYLIB="$(python3 pylib.py | grep -e '-packages$' | head -1)"
 		rm -f pylib.py
 	fi
 
