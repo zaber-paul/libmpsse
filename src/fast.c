@@ -6,6 +6,7 @@
  * 20 March 2013
  */
 
+#include <stdio.h>
 #include <string.h>
 #include "mpsse.h"
 #include "support.h"
